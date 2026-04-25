@@ -2,87 +2,81 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  background: var(--bg);
 }
-
+ 
 .dashboard-main {
-  padding: 36px 40px;
-  max-width: 1200px;
+  padding: 40px 44px;
+  max-width: 1240px;
   margin: 0 auto;
   width: 100%;
 }
-
+ 
 .dash-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
   gap: 20px;
 }
-
-.card-title {
-  font-size: 1rem;
-  font-weight: 700;
-  margin-bottom: 6px;
-  letter-spacing: -0.01em;
-}
-
-.card-desc {
-  font-size: 0.83rem;
-  color: var(--text-dim);
-  margin-bottom: 18px;
-}
-
+ 
+/* ─── Summary Stats ───────────────────────────────────────────── */
 .summary-box {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-  gap: 14px;
-  margin-top: 18px;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  gap: 12px;
+  margin-top: 20px;
 }
-
+ 
 .summary-stat {
   background: var(--surface2);
   border: 1.5px solid var(--border);
-  border-radius: 10px;
-  padding: 14px;
+  border-radius: var(--radius);
+  padding: 16px;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 8px;
+  transition: border-color var(--t), box-shadow var(--t) var(--ease);
 }
-
+.summary-stat:hover { border-color: var(--border-dark); box-shadow: var(--shadow-sm); }
+ 
 .summary-stat span {
-  font-size: 0.72rem;
-  color: var(--text-dim);
+  font-size: 0.68rem;
+  color: var(--ink-3);
   text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.09em;
   font-weight: 700;
 }
-
 .summary-stat strong {
-  font-size: 1.4rem;
+  font-family: var(--serif);
+  font-size: 1.6rem;
   font-weight: 800;
-  font-family: var(--mono);
+  color: var(--ink);
+  line-height: 1;
 }
-
+ 
+/* ─── Token Display ───────────────────────────────────────────── */
 .token-display {
-  background: var(--surface2);
-  border: 1.5px solid var(--border);
-  border-radius: 8px;
-  padding: 12px;
-  margin: 10px 0;
-  font-size: 0.8rem;
+  background: var(--ink);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  margin: 12px 0;
 }
-
 .token-display p {
-  color: var(--text-dim);
+  color: rgba(245,240,232,.5);
+  font-size: 0.72rem;
+  font-family: var(--mono);
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
   margin-bottom: 6px;
 }
-
 .token-display code {
   font-family: var(--mono);
-  font-size: 0.75rem;
-  color: var(--green);
+  font-size: 0.78rem;
+  color: var(--green-pale);
   word-break: break-all;
   display: block;
 }
-
+ 
 @media (max-width: 600px) {
   .dashboard-main { padding: 20px 16px; }
+  .dash-grid { grid-template-columns: 1fr; }
 }
